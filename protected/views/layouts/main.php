@@ -170,8 +170,8 @@
 					<ul class="sidebar-menu">
 						<li class="header">MAIN NAVIGATION</li>
 						<li class="treeview " id="M_dash">
-							<a href="<?php echo Yii::app()->request->baseUrl; ?>">
-								<i class="fa fa-dashboard"></i> <span>Dashboard</span>
+						<a href="<?php echo Yii::app()->createUrl('Attendence/create');?>">
+								<i class="fa fa-dashboard"></i> <span>Attendence</span>
 							</a>
 						</li>
 						
@@ -185,7 +185,7 @@
 								</span>
 							</a>
 							<ul class="treeview-menu" >
-								<li id="M_Borrowers_Create"><a href="<?php echo Yii::app()->createUrl('Borrower/create');?>"><i class="fa fa-circle-o"></i> Add Borrower</a></li>
+								<li id="M_Borrowers_Create"><a href="<?php echo Yii::app()->createUrl('Attendence/create');?>"><i class="fa fa-circle-o"></i> Add Borrower</a></li>
 								<li id="M_Borrowers_Manage"><a href="<?php echo Yii::app()->createUrl('Borrower/manage');?>"><i class="fa fa-circle-o"></i> View Borrowers</a></li>
 							</ul>
 						</li>

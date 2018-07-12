@@ -49,6 +49,16 @@
 			return $data;
 			
 		}
+
+		public function getBatches(){
+
+			$sql = "SELECT * FROM batch";
+			
+			$data = Yii::app()->db->createCommand($sql)->queryAll();
+			
+			return $data;
+			
+		}
 		
 		
 		
