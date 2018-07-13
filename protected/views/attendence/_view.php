@@ -25,8 +25,8 @@
 	<?php echo CHtml::encode($data->date); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('attendence')); ?>:</b>
-	<?php echo CHtml::encode($data->attendence); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('batch')); ?>:</b>
+	<?php echo CHtml::encode($data->batch); ?>
 	<br />
 
 

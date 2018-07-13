@@ -9,7 +9,7 @@
  * @property integer $moduleid
  * @property integer $semester
  * @property string $date
- * @property integer $attendence
+ * @property integer $batch
  */
 class Attendence extends CActiveRecord
 {
@@ -29,11 +29,11 @@ class Attendence extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('sid, moduleid, semester, date, attendence', 'required'),
-			array('sid, moduleid, semester, attendence', 'numerical', 'integerOnly'=>true),
+			array('moduleid, semester, date', 'required'),
+			array('moduleid, semester', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('attendenceid, sid, moduleid, semester, date, attendence', 'safe', 'on'=>'search'),
+			array('attendenceid, sid, moduleid, semester, date, batch', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,11 +55,11 @@ class Attendence extends CActiveRecord
 	{
 		return array(
 			'attendenceid' => 'Attendenceid',
-			'sid' => 'Student ID',
+		//	'sid' => 'Student ID',
 			'moduleid' => 'Module Code',
 			'semester' => 'Semester',
 			'date' => 'Date',
-			'attendence' => 'Attendence',
+			'batch' => 'Batch',
 		);
 	}
 
@@ -82,11 +82,11 @@ class Attendence extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('attendenceid',$this->attendenceid);
-		$criteria->compare('sid',$this->sid);
+		//$criteria->compare('sid',$this->sid);
 		$criteria->compare('moduleid',$this->moduleid);
 		$criteria->compare('semester',$this->semester);
 		$criteria->compare('date',$this->date,true);
-		$criteria->compare('attendence',$this->attendence);
+		$criteria->compare('batch',$this->batch);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

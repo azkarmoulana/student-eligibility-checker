@@ -13,7 +13,11 @@
 // );
 // ?>
 
-
+<script>
+	$("#M_Attendence").addClass("active");
+	$("#M_Attendence_Create").addClass("active");
+	
+</script>
 
 <section class="content-header">
 	

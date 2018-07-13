@@ -6,7 +6,7 @@ class AttendenceController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	// public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -32,7 +32,7 @@ class AttendenceController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','getstudent'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -63,20 +63,41 @@ class AttendenceController extends Controller
 	public function actionCreate()
 	{
 		$model=new Attendence;
-
+		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Attendence']))
+		if(isset($_POST['Attendence']) && isset($_POST['Student']))
 		{
 			$model->attributes=$_POST['Attendence'];
-			if($model->save())
+		
+			$model->batch=$_POST['Attendence']['batch'];
+			
+			//  exit();
+			
+			if($model->save()){
+
+				for($i=0;$i<count($_POST['Student']);$i++)
+				{
+					$attendencData= new AttendenceStudents();
+					// echo $_POST['Student'][$i];
+					$attendencData->student_id= $_POST['Student'][$i];
+					$attendencData->attendance= 1;
+					$attendencData->attendenceid= $model->attendenceid;
+					$attendencData->save();
+				}
+
 				$this->redirect(array('view','id'=>$model->attendenceid));
+
+			}
+				
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
 		));
+
+
 	}
 
 	/**
@@ -103,6 +124,27 @@ class AttendenceController extends Controller
 		));
 	}
 
+	public function actionGetStudent()
+		{
+			
+			
+			//  $_POST['batchId']=10;
+			
+			if(isset($_POST['batchId'])){
+					echo $_POST['batchId'];
+				
+				$student_in_batch=MainData::getStudent($_POST['batchId']);
+				
+				// print_r($student_in_batch);
+				$this->renderPartial('_students',array(
+				'student_in_batch'=>$student_in_batch,
+				
+				));
+				
+			}
+			
+			Yii::app()->end();
+		}
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.

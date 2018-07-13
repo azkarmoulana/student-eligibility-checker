@@ -59,9 +59,56 @@
 			return $data;
 			
 		}
+
+		public function getModule(){
+
+			$sql = "SELECT * FROM module";
+			
+			$data = Yii::app()->db->createCommand($sql)->queryAll();
+			
+			return $data;
+			
+		}
 		
+		public function getStudent($batchId){
+
+			$sql = "SELECT * FROM student WHERE batchid=".$batchId;
+			
+			$data = Yii::app()->db->createCommand($sql)->queryAll();
+			
+			return $data;
+			
+		}
 		
+		public function getBatchByID($batchId){
+
+			$sql = "SELECT * FROM batch WHERE batchid=".$batchId;
+			
+			$data = Yii::app()->db->createCommand($sql)->queryAll();
+			
+			return $data;
+			
+		}
+
+		public function getModuleByID($moduleId){
+
+			$sql = "SELECT * FROM module WHERE moduleid=".$moduleId;
+			
+			$data = Yii::app()->db->createCommand($sql)->queryAll();
+			
+			return $data;
+			
+		}
 		
-		
+		public function getAllAttendence(){
+
+			$sql = "SELECT att.attendenceid, bch.name as batch, bch.degree, mol.name as module, att.date FROM attendence att, batch bch, module mol WHERE mol.moduleid=att.moduleid AND bch.batchid=att.batch";
+			;
+			
+			$data = Yii::app()->db->createCommand($sql)->queryAll();
+			
+			return $data;
+			
+		}
 		
 	}					

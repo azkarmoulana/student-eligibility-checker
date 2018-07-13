@@ -21,7 +21,9 @@
 		folder instead of downloading all of them to reduce the load. -->
 		
 		
-		<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+		<title><?php
+			$this->pageTitle="NSBM e Attendence";
+		echo CHtml::encode($this->pageTitle); ?></title>
 		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.min.css" rel="stylesheet">
 		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/font-awesome.min.css" rel="stylesheet" >
 		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" rel="stylesheet"   > 
@@ -90,11 +92,11 @@
 			
 			<header class="main-header">
 				<!-- Logo -->
-				<a href="index2.html" class="logo">
+				<a href="<?php echo Yii::app()->createUrl('Attendence/create');?>" class="logo">
 					<!-- mini logo for sidebar mini 50x50 pixels -->
-					<span class="logo-mini"><b>ML</b></span>
+					<span class="logo-mini"><b>NeA</b></span>
 					<!-- logo for regular state and mobile devices -->
-					<span class="logo-lg"><b>MICRO </b>Loan</span>
+					<span class="logo-lg"><b>NSBM e </b>Attendence</span>
 				</a>
 				<!-- Header Navbar: style can be found in header.less -->
 				<nav class="navbar navbar-static-top">
@@ -110,9 +112,9 @@
 							
 							<!-- Tasks: style can be found in dropdown.less -->
 							<!-- User Account: style can be found in dropdown.less -->
-							<li>     
-                                <a href="<?php echo Yii::app()->createUrl('Settings');?>"><i class="fa fa-ban"></i> <span>Settings</span></a>
-                            </li>
+							<!-- <li>     
+                                <a href="<?php //echo Yii::app()->createUrl('Settings');?>"><i class="fa fa-ban"></i> <span>Settings</span></a>
+                            </li> -->
 							<li class="dropdown user user-menu">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/avatar5.png" class="user-image" alt="User Image">
@@ -169,153 +171,27 @@
 					
 					<ul class="sidebar-menu">
 						<li class="header">MAIN NAVIGATION</li>
-						<li class="treeview " id="M_dash">
-						<a href="<?php echo Yii::app()->createUrl('Attendence/create');?>">
+						<!-- <li class="treeview " id="M_dash">
+						<a href="<?php //echo Yii::app()->createUrl('Attendence/create');?>">
 								<i class="fa fa-dashboard"></i> <span>Attendence</span>
 							</a>
-						</li>
+						</li> -->
 						
 												
-						<li class="treeview" id="M_Borrowers">
+						<li class="treeview" id="M_Attendence">
 							<a href="#">
 								<i class="fa fa-users"></i>
-								<span>Borrowers</span>
+								<span>Attendence</span>
 								<span class="pull-right-container">
 									<i class="fa fa-angle-left pull-right"></i>
 								</span>
 							</a>
 							<ul class="treeview-menu" >
-								<li id="M_Borrowers_Create"><a href="<?php echo Yii::app()->createUrl('Attendence/create');?>"><i class="fa fa-circle-o"></i> Add Borrower</a></li>
-								<li id="M_Borrowers_Manage"><a href="<?php echo Yii::app()->createUrl('Borrower/manage');?>"><i class="fa fa-circle-o"></i> View Borrowers</a></li>
+								<li id="M_Attendence_Create"><a href="<?php echo Yii::app()->createUrl('Attendence/create');?>"><i class="fa fa-circle-o"></i>Submit Attendence</a></li>
+								<li id="M_Attendence_Manage"><a href="<?php echo Yii::app()->createUrl('Attendence/admin');?>"><i class="fa fa-circle-o"></i>View Attendence</a></li>
 							</ul>
 						</li>
-						<li class="treeview" id="M_Loan">
-							<a href="#">
-								<i class="fa fa-balance-scale"></i>
-								<span>Loans</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							<ul class="treeview-menu " >
 						
-								<li id="M_Loan_Create" ><a  href="<?php echo Yii::app()->createUrl('Loan/create');?>"><i class="fa fa-circle-o"></i> Add Loan</a></li>
-									<li id="M_Loan_Manage" ><a  href="<?php echo Yii::app()->createUrl('Loan/manage');?>"><i class="fa fa-circle-o"></i> View All Loans</a></li>
-							</ul>
-						</li>
-						<li class="treeview" id="M_invo">
-							<a href="<?php echo Yii::app()->createUrl('invoice/Index');?>">
-								<i class="fa fa-file-text"></i> <span>Invoice</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							
-						</li>
-						<li class="treeview" id="M_ingr">
-							<a href="<?php echo Yii::app()->createUrl('kitchenIngrediants');?>">
-								<i class="fa fa-shopping-cart"></i> <span>Kitchen Ingrediants</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							
-						</li>
-						
-						<li class="treeview" id="M_bmenu">
-							<a href="<?php echo Yii::app()->createUrl('barItems');?>">
-								<i class="fa fa-glass"></i><span>Bar Menu</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-						</li>
-						<li class="treeview" id="M_rmenu">
-							<a href="<?php echo Yii::app()->createUrl('RestaurantItems');?>">
-								<i class="fa fa-cutlery"></i> <span>Restaurant Menu</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							<!--ul class="treeview-menu">
-								<li><a href="../tables/simple.html"><i class="fa fa-circle-o"></i> Create Menu Items</a></li>
-								<li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> View Menu Items</a></li>
-							</ul-->
-						</li>
-						<li class="treeview" id="M_room">
-							
-							<a href="<?php echo Yii::app()->createUrl('/room/create');?>">
-								<i class="fa fa-home"></i> <span>Room</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-						</li>
-						<li class="treeview" id="M_stew">
-							<a href="<?php echo Yii::app()->createUrl('/steward/create');?>">
-								
-								<i class="fa  fa-user"></i> <span>Steward</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>          
-						</li>
-						<li class="treeview" id="M_user">
-							<a href="<?php echo Yii::app()->createUrl('/user');?>">
-								
-								<i class="fa  fa-user"></i> <span>User</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							
-						</li>
-						<li class="treeview" id="M_cus">
-							
-							<a href="<?php echo Yii::app()->createUrl('/customer');?>">
-								<i class="fa  fa-users"></i> <span>Customers</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							
-						</li>
-						
-						<li class="treeview" id="M_expen">
-							<a href="<?php echo Yii::app()->createUrl('/expenses');?>">
-								
-								<i class="fa    fa-money"></i> <span>Expenses</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							
-						</li>
-						<li class="treeview" id="M_repo">
-							
-							<a href="<?php echo Yii::app()->createUrl('/reports');?>">
-								<i class="fa fa-line-chart"></i> <span>Reports</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							<ul class="treeview-menu " >
-								<li><a href="<?php echo Yii::app()->createUrl('Reports/stock');?>"><i class="fa fa-circle-o"></i>Current Stock</a></li>
-								<li><a href="<?php echo Yii::app()->createUrl('Reports/sales');?>"><i class="fa fa-circle-o"></i>Sales</a></li>
-								<li><a href="<?php echo Yii::app()->createUrl('Reports/profit');?>"><i class="fa fa-circle-o"></i>Profit</a></li>
-							</ul>
-							
-						</li>
-						<li class="treeview" id="M_more">
-							
-							<a href="<?php echo Yii::app()->createUrl('/more');?>">
-								<i class="fa  fa-plus-square"></i> <span>More</span>
-								<span class="pull-right-container">
-									<i class="fa fa-angle-left pull-right"></i>
-								</span>
-							</a>
-							
-						</li>
 					</ul>
 					<!-- /.sidebar -->
 				</section >
@@ -333,7 +209,7 @@
 				<div class="pull-right hidden-xs">
 					<b>Version</b> 1.0
 				</div>
-				<strong>Copyright &copy;<a href="#"> MicroFinance</a>.</strong> All rights
+				<strong>Copyright &copy;<a href="#"> NSBM e Attendence</a>.</strong> All rights
 				reserved.
 			</footer><!-- footer -->
 			<div class="control-sidebar-bg"></div>
