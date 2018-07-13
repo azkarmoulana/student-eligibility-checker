@@ -35,7 +35,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Micro </b>Loan</a>
+    <a href="../../index2.html"><b>NSBM </b>e-Attendence</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
