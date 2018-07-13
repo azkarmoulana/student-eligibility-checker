@@ -37,8 +37,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'attendence'); ?>
-		<?php echo $form->textField($model,'attendence'); ?>
+		<?php echo $form->label($model,'batch'); ?>
+		<?php echo $form->textField($model,'batch'); ?>
 	</div>
 
 	<div class="row buttons">
